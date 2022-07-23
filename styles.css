@@ -56,6 +56,7 @@ body {
   background: #222222;
   color: white;
   position: relative;
+  border-radius: 30px;
 }
 .customSelect:placeholder, .form .select:placeholder, .form .textarea:placeholder, .form .text-input:placeholder, .form .option-input + label:placeholder, .form .checkbox-input + label:placeholder {
   color: white;
