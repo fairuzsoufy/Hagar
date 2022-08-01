@@ -1,82 +1,175 @@
-<html>
+<!DOCTYPE html>
 
     <head>
         <title>Hagar's Calculator</title>
         <link rel="stylesheet" href="styles.css"> 
     </head>
 
+    <script type = "text/javascript">
+
+    function form_submit()
+    {
+      var age = document.getElementById('age').value;
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      var gender = null;
+      var BMR = null;
+      if(document.getElementById('male').checked) 
+      { 
+          BMR = (10*weight)+(6.25*height)-(5*age)+5; 
+      }   
+      else if(document.getElementById('female').checked) 
+      {  
+        BMR = (10*weight)+(6.25*height)-(5*age)-161;    
+      }      
+ 
+      alert("BMR="+BMR);  
+      var activity_level = document.getElementById("activity_level").value;
+      var MC = null;
+      if(activity_level=='sedentary')
+      {
+        MC = BMR*1.2;
+      }
+      else if(activity_level=='lightly_active') 
+      { 
+        MC = BMR*1.375;
+      } 
+      else if(activity_level=='moderately_active') 
+      { 
+        MC = BMR*1.55;
+      } 
+      else if(activity_level=='very_active') 
+      { 
+        MC = BMR*1.725;
+      } 
+      else if(activity_level=='extremely_active') 
+      { 
+        MC = BMR*1.9;
+      } 
+
+      alert("MC="+MC);
+      var goal = document.getElementById("goal").value;
+      var final_MC = null;
+     
+      if(goal=='low_weight_loss') 
+      { 
+        final_MC = MC-300;
+        // alert('low_weight_loss');
+      } 
+      else if(goal=='moderate_weight_loss') 
+      { 
+        // alert(final_MC);
+        final_MC = MC-500; 
+      } 
+      else if(goal=='severe_weight_loss') 
+      { 
+        final_MC = MC-700;   
+        // alert('severe_weight_loss');
+      }
+      else if(goal=='low_weight_gain') 
+      { 
+        final_MC = MC+300;
+        // alert('low_weight_gain');   
+      }
+      else if(goal=='moderate_weight_gain') 
+      { 
+        final_MC = MC+500; 
+        // alert('moderate_weight_gain'); 
+      }
+      else if(goal=='severe_weight_gain') 
+      { 
+        final_MC = MC+700; 
+        // alert('severe_weight_gain'); 
+      }
+      else if(goal=='low_body_recomposition') 
+      { 
+        final_MC = MC-300; 
+        // alert('low_body_recomposition'); 
+      }
+      else if(goal=='moderate_body_recomposition') 
+      { 
+        final_MC = MC-500;   
+      }
+      else if(goal=='carb_cycle') 
+      { 
+        alert('carb_cycle');   
+      }
+
+   alert("FINAL MC="+final_MC);
+    
+    }
+
+    </script>    
+
+
     <!-- <h1> hagar's Calculator</h1> -->
-    <form action='' class='form'>
+    <form class='form'>
         <p class='field required half'>
-          <label class='label required' for='name'>Age:</label>
-          <input class='text-input' id='name' name='name' required type='text'>
+          <label class='label required' >Age:</label>
+          <input class='text-input' id='age' name='name'  type='text'>
         </p>
         <div class='field  required half'>
             <label class='label required'>Gender:</label>
-            <ul class='checkboxes'>
-              <li class='checkbox'>
-                <input class='checkbox-input' id='choice-0' name='choice' type='radio' value='0'>
-                <label class='checkbox-label' for='choice-0'>Male</label>
+            <ul class='options'>
+              <li class='option'>
+                <input class='option-input' id='male' name='option' type='radio' value='0'>
+                <label class='option-label' for='male'>Male</label>
               </li>
-              <li class='checkbox'>
-                <input class='checkbox-input' id='choice-1' name='choice' type='radio' value='1'>
-                <label class='checkbox-label' for='choice-1'>Female</label>
+              <li class='option'>
+                <input class='option-input' id='female' name='option' type='radio' value='1'>
+                <label class='option-label' for='female'>Female</label>
               </li>
               
             </ul>
           </div>
 
+          
+
         <p class='field required half'>
           <label class='label' for='weight'>Weight:</label>
-          <input class='text-input' id='weght' name='weight'  type='text'required> 
+          <input class='text-input' id='weight' type='text'>
+         
         </p>
         <p class='field required half'>
           <label class='label' for='height'>Height:</label>
-          <input class='text-input' id='height' name='height'  type='text'required> 
+          <input class='text-input' id='height' type='text'>
         </p>
 
-        
-      
-        
-        <div class='field'>
-          <label class='label'>Goal:</label>
-          <ul class='options'>
-            <li class='option'>
-              <input class='option-input' id='option-0' name='option' type='radio' value='0'>
-              <label class='option-label' for='option-0'>Lose weight</label>
-            </li>
-            <li class='option'>
-              <input class='option-input' id='option-1' name='option' type='radio' value='1'>
-              <label class='option-label' for='option-1'>Gain</label>
-            </li>
-            <li class='option'>
-              <input class='option-input' id='option-2' name='option' type='radio' value='2'>
-              <label class='option-label' for='option-2'>Maintain</label>
-            </li>
-            <li class='option'>
-              <input class='option-input' id='option-2' name='option' type='radio' value='2'>
-              <label class='option-label' for='option-2'>Maintain2</label>
-            </li>
-          
-          </ul>
-        </div>
+       
         
         <p class='field half'>
           <label class='label' for='select'>Activity Level:</label>
-          <select class='select' id='select'>
+          <select class='select' id='activity_level'>
             <option selected value=''></option>
-            <option value='ceo'>Basal Metabolic Rate (BMR)</option>
-            <option value='front-end'>Little or no exercise</option>
-            <option value='back-end'>Exercise 1-3 times/week</option>
-            <option value='back-end'>Exercise 4-5 times/week</option>
-            <option value='back-end'>Daily Exercise or intense exercise 3-4 times/week</option>
-            <option value='back-end'>Intense exercise 6-7 times/week</option>
-            <option value='back-end'>Very Intense exercise daily, or physical job</option>
-           
+            <option value='sedentary'>Sedentary</option>
+            <option value='lightly_active'>Lightly Active</option>
+            <option value='moderately_active'>Moderately Active</option>
+            <option value='very_active'>Very Active</option>
+            <option value='extremely_active'>Extremely Active</option>
           </select>
         </p>
+        
+      <p class='field half'>
+        <label class='label' for='select'>Goal:</label>
+        <select class='select' id='goal'>
+          <option selected value=''></option>
+          <option value='low_weight_loss'>Low Weight Loss</option>
+          <option value='moderate_weight_loss'>Moderate Weight Loss</option>
+          <option value='severe_weight_loss'>Severe Weight Gain</option>
+          <option value='low_weight_gain'>Low Weight Gain</option>
+          <option value='moderate_weight_gain'>Moderate Weight Gain</option>
+          <option value='severe_weight_gain'>Severe Weight Gain</option>
+          <option value='low_body_recomposition'>Low Body Recomposition</option>
+          <option value='moderate_body_recomposition'>Moderate Body Recomposition</option>
+          <option value='carb_cycle'>Carb Cycle</option>
+        </select>
+      </p>
+
+
+       
+
         <p class='field half'>
-          <input class='button' type='submit' value='Send'>
+          <input class='button' type='submit' value='Send' onclick = "form_submit()">
         </p>
       </form>
       
