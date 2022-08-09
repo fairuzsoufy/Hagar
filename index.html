@@ -90,12 +90,32 @@
       { 
         final_MC = MC-500;   
       }
-      else if(goal=='carb_cycle') 
+      else if(goal=='carb_cycle_fat_loss_low_carb') 
+      { 
+        var carb1 = MC * 0.25;
+        var carb2 = MC - carb1;
+        var carb3 = carb2 * 0.20;
+        var carb4 = carb3/4;
+        alert(carb2+" calories / " + carb4+"g carbs");
+      }
+      else if(goal=='carb_cycle_fat_loss_high_carb') 
+      { 
+        var carb1 = MC * 0.10;
+        var carb2 = MC - carb1;
+        var carb3 = carb2 * 0.50;
+        var carb4 = carb3/4;
+        alert(carb2+" calories / " + carb4+"g carbs");
+      }
+      else if(goal=='carb_cycle_muscle_gain_low_carb') 
+      { 
+        alert('carb_cycle');   
+      }
+      else if(goal=='carb_cycle_muscle_gain_high_carb') 
       { 
         alert('carb_cycle');   
       }
 
-   alert("FINAL MC="+final_MC);
+  //  alert("FINAL MC="+final_MC);
     
     }
 
@@ -141,11 +161,11 @@
           <label class='label' for='select'>Activity Level:</label>
           <select class='select' id='activity_level'>
             <option selected value=''></option>
-            <option value='sedentary'>Sedentary</option>
-            <option value='lightly_active'>Lightly Active</option>
-            <option value='moderately_active'>Moderately Active</option>
-            <option value='very_active'>Very Active</option>
-            <option value='extremely_active'>Extremely Active</option>
+            <option value='sedentary'>1.2</option>
+            <option value='lightly_active'>1.375</option>
+            <option value='moderately_active'>1.55</option>
+            <option value='very_active'>1.725</option>
+            <option value='extremely_active'>1.9</option>
           </select>
         </p>
         
@@ -161,7 +181,11 @@
           <option value='severe_weight_gain'>Severe Weight Gain</option>
           <option value='low_body_recomposition'>Low Body Recomposition</option>
           <option value='moderate_body_recomposition'>Moderate Body Recomposition</option>
-          <option value='carb_cycle'>Carb Cycle</option>
+          <option value='carb_cycle_fat_loss_low_carb'>Carb Cycle Fat Loss (Low Carb)</option>
+          <option value='carb_cycle_fat_loss_high_carb'>Carb Cycle Fat Loss (High Carb)</option>
+          <option value='carb_cycle_muscle_gain_low_carb'>Carb Cycle Muscle Gain (Low Carb)</option>
+          <option value='carb_cycle_muscle_gain_high_carb'>Carb Cycle Muscle Gain (High Carb)</option>
+
         </select>
       </p>
 
