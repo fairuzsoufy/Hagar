@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 
     <head>
         <title>Hagar's Calculator</title>
@@ -54,41 +54,42 @@
       if(goal=='low_weight_loss') 
       { 
         final_MC = MC-300;
-        // alert('low_weight_loss');
+        alert("FINAL MC="+final_MC);
       } 
       else if(goal=='moderate_weight_loss') 
       { 
-        // alert(final_MC);
         final_MC = MC-500; 
+        alert("FINAL MC="+final_MC);
       } 
       else if(goal=='severe_weight_loss') 
       { 
         final_MC = MC-700;   
-        // alert('severe_weight_loss');
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='low_weight_gain') 
       { 
         final_MC = MC+300;
-        // alert('low_weight_gain');   
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='moderate_weight_gain') 
       { 
         final_MC = MC+500; 
-        // alert('moderate_weight_gain'); 
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='severe_weight_gain') 
       { 
         final_MC = MC+700; 
-        // alert('severe_weight_gain'); 
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='low_body_recomposition') 
       { 
         final_MC = MC-300; 
-        // alert('low_body_recomposition'); 
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='moderate_body_recomposition') 
       { 
         final_MC = MC-500;   
+        alert("FINAL MC="+final_MC);
       }
       else if(goal=='carb_cycle_fat_loss_low_carb') 
       { 
@@ -108,14 +109,22 @@
       }
       else if(goal=='carb_cycle_muscle_gain_low_carb') 
       { 
-        alert('carb_cycle');   
+        var carb1 = MC * 0.10;
+        var carb2 = MC + carb1;
+        var carb3 = carb2 * 0.20;
+        var carb4 = carb3/4;
+        alert(carb2+" calories / " + carb4+"g carbs");
+
       }
       else if(goal=='carb_cycle_muscle_gain_high_carb') 
       { 
-        alert('carb_cycle');   
+        var carb1 = MC * 0.25;
+        var carb2 = MC + carb1;
+        var carb3 = carb2 * 0.50;
+        var carb4 = carb3/4;
+        alert(carb2+" calories / " + carb4+"g carbs");
       }
 
-  //  alert("FINAL MC="+final_MC);
     
     }
 
@@ -126,7 +135,7 @@
     <form class='form'>
         <p class='field required half'>
           <label class='label required' >Age:</label>
-          <input class='text-input' id='age' name='name'  type='text'>
+          <input class='text-input' id='age' name='name'  type='number'>
         </p>
         <div class='field  required half'>
             <label class='label required'>Gender:</label>

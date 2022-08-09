@@ -54,6 +54,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   background: #222222;
+ 
   color: white;
   position: relative;
   border-radius: 30px;
@@ -218,3 +219,19 @@ body {
   will-change: top, left, width;
   transform-origin: 0 0;
 }
+
+/* make numbers increase by mouse scroll */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
