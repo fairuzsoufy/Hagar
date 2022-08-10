@@ -7,7 +7,7 @@
 
     <script type = "text/javascript">
 
-    function form_submit()
+    function test() 
     {
       var age = document.getElementById('age').value;
       var weight = document.getElementById("weight").value;
@@ -124,28 +124,31 @@
         var carb4 = carb3/4;
         alert(carb2+" calories / " + carb4+"g carbs");
       }
-
-    
     }
 
     </script>    
 
 
     <!-- <h1> hagar's Calculator</h1> -->
-    <form class='form'>
-        <p class='field required half'>
-          <label class='label required' >Age:</label>
-          <input class='text-input' id='age' name='name'  type='number'>
+    <form class='form' onsubmit="test()">
+        <p class='field half'>
+          <label class='label' >Age:</label>
+          <input class='text-input' id='age' name='name' type='text' autocomplete="off" required onkeydown="return ( event.ctrlKey || event.altKey 
+          || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+          || (95<event.keyCode && event.keyCode<106)
+          || (event.keyCode==8) || (event.keyCode==9) 
+          || (event.keyCode>34 && event.keyCode<40) 
+          || (event.keyCode==46) )">
         </p>
-        <div class='field  required half'>
-            <label class='label required'>Gender:</label>
-            <ul class='options'>
+        <div class='field half'>
+            <label class='label '>Gender:</label>
+            <ul class='options' >
               <li class='option'>
-                <input class='option-input' id='male' name='option' type='radio' value='0'>
+                <input class='option-input' id='male' name='gender' type='radio' value='0' required autocomplete="off">
                 <label class='option-label' for='male'>Male</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='female' name='option' type='radio' value='1'>
+                <input class='option-input' id='female' name='gender' type='radio' value='1' autocomplete="off">
                 <label class='option-label' for='female'>Female</label>
               </li>
               
@@ -154,22 +157,22 @@
 
           
 
-        <p class='field required half'>
+        <p class='field  half'>
           <label class='label' for='weight'>Weight:</label>
-          <input class='text-input' id='weight' type='text'>
+          <input class='text-input' id='weight' autocomplete="off" required type='text'>
          
         </p>
-        <p class='field required half'>
+        <p class='field half'>
           <label class='label' for='height'>Height:</label>
-          <input class='text-input' id='height' type='text'>
+          <input class='text-input' id='height' autocomplete="off" required type='text'>
         </p>
 
        
         
         <p class='field half'>
           <label class='label' for='select'>Activity Level:</label>
-          <select class='select' id='activity_level'>
-            <option selected value=''></option>
+          <select class='select' id='activity_level' required autocomplete="off">
+            <option hidden disabled selected value> </option>
             <option value='sedentary'>1.2</option>
             <option value='lightly_active'>1.375</option>
             <option value='moderately_active'>1.55</option>
@@ -180,8 +183,9 @@
         
       <p class='field half'>
         <label class='label' for='select'>Goal:</label>
-        <select class='select' id='goal'>
-          <option selected value=''></option>
+        <select class='select' id='goal' required autocomplete="off">
+          <!-- <option selected value=''></option> -->
+          <option hidden disabled selected value> </option>
           <option value='low_weight_loss'>Low Weight Loss</option>
           <option value='moderate_weight_loss'>Moderate Weight Loss</option>
           <option value='severe_weight_loss'>Severe Weight Gain</option>
@@ -202,7 +206,7 @@
        
 
         <p class='field half'>
-          <input class='button' type='submit' value='Send' onclick = "form_submit()">
+          <input class='button' type='submit' value='Send'>
         </p>
       </form>
       
